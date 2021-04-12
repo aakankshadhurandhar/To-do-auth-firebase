@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 //authentication module
 import 'firebase/auth';
+import env from "dotenv"
+env.config()
 
 
 const app=firebase.initializeApp({
