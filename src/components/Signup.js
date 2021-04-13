@@ -1,12 +1,14 @@
 
-import React,{ useRef, useState } from 'react'
+import React,{ useRef,useState } from 'react'
 import { Form,Card,Button,Alert } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/Authcontext'
+
 export default function Signup() {
-        const emailRef=useRef();
-        const passwordRef=useRef();
-        const passwordconfirmationRef=useRef();
+   
+    const emailRef=useRef();
+    const passwordRef=useRef();
+    const passwordconfirmationRef=useRef();
         const { signup} = useAuth()
         const [error,setError]=useState('')
         const [loading,setLoading]=useState(false)
@@ -14,11 +16,9 @@ export default function Signup() {
 
    async function handlesubmit(e){
         e.preventDefault()
-        //check if both the password same or not
-        if(passwordRef.current.value !== passwordconfirmationRef.current.value)
-        {
-                return setError('paasword do not match')
-        }
+        
+        
+        
         try{
             setError('')
             setLoading(true)
@@ -45,16 +45,13 @@ export default function Signup() {
                         <Form onSubmit={handlesubmit}>
                             <Form.Group id="email">
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" ref={emailRef} required/>
+                                <Form.Control type="email" for="email"  ref={emailRef} required />
                             </Form.Group>
                             <Form.Group id="passsword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" ref={passwordRef} required/>
+                                <Form.Control type="password" for="password"  ref={passwordRef} required />
                             </Form.Group>
-                            <Form.Group id="passsword-confirm">
-                                <Form.Label>Password-Confirmation</Form.Label>
-                                <Form.Control type="password" ref={passwordconfirmationRef} required/>
-                            </Form.Group>
+                            
                             <Button disabled={loading}  className="w-100" type="submit">Sign Up</Button>
                         </Form>
                     </Card.Body>
