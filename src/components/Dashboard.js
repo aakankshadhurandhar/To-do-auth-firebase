@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-
+import {Alert} from 'react-bootstrap'
 import { useHistory } from 'react-router';
 import {useAuth} from '../contexts/Authcontext'
 import {db} from "../firebase"
@@ -18,6 +18,7 @@ export default function Dashboard() {
 //to maintain real-time snapshot of to-dos
     useEffect(() => {
         getTodos();
+        // eslint-disable-next-line
     }, [])
     async function getTodos() {
         const notesRef =db.collection("users").doc(currentUser.uid);
@@ -70,7 +71,9 @@ async function handleSubmit(e) {
         <>
         <Container maxWidth="sm">
       <h1>To-do app 🌻 </h1>
+      {error && <Alert variant="danger">{error}</Alert>}
       <form noValidate onSubmit={handleSubmit}>
+
         
         <TextField
           variant="outlined"
