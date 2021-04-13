@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
-import {Alert} from 'react-bootstrap'
+
 import { useHistory } from 'react-router';
 import {useAuth} from '../contexts/Authcontext'
 import {db} from "../firebase"
-import { AddCircleOutlineRounded, DeleteOutlineRounded, Edit } from '@material-ui/icons';
-import { Button, TextField, Container, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Dialog, DialogContent, DialogActions } from '@material-ui/core';
+import { AddCircleOutlineRounded, DeleteOutlineRounded } from '@material-ui/icons';
+import { Button, TextField, Container, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core';
 
 export default function Dashboard() {
     const [error,setError]=useState("");
