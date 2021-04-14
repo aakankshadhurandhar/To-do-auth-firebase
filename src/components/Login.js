@@ -6,7 +6,10 @@ import { useAuth } from '../contexts/Authcontext'
 export default function Login() {
         const emailRef=useRef();
         const passwordRef=useRef();
-       
+        // eslint-disable-next-line 
+        const [email, setEmail] = useState()
+        // eslint-disable-next-line 
+     const [password, setPassword] = useState()
         const {login} = useAuth()
         const [error,setError]=useState('')
         const [loading,setLoading]=useState(false)
@@ -42,13 +45,13 @@ export default function Login() {
                        
                         {error && <Alert variant="danger">{error}</Alert>}
                         <Form onSubmit={handlesubmit}>
-                            <Form.Group id="email">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" ref={emailRef} required/>
+                            <Form.Group>
+                                <Form.Label for="email">Email</Form.Label>
+                                <Form.Control type="email" id="email" onChange={(e)=>{setEmail(e.target.value)}}required/>
                             </Form.Group>
-                            <Form.Group id="passsword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" ref={passwordRef} required/>
+                            <Form.Group >
+                                <Form.Label for="password">Password</Form.Label>
+                                <Form.Control id="password" type="password" onChange={(e)=>{setPassword(e.target.value)}} required/>
                             </Form.Group>
                             
                             <Button disabled={loading}  className="w-100" type="submit">Signin</Button>
