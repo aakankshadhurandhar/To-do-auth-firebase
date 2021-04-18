@@ -1,11 +1,10 @@
 
-import React,{ useRef, useState } from 'react'
+import React,{ useState } from 'react'
 import { Form,Card,Button,Alert } from 'react-bootstrap'
 import { Link,useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/Authcontext'
 export default function Login() {
-        const emailRef=useRef();
-        const passwordRef=useRef();
+    
         // eslint-disable-next-line 
         const [email, setEmail] = useState()
         // eslint-disable-next-line 
@@ -23,13 +22,13 @@ export default function Login() {
         try{
             setError('')
             setLoading(true)
-           await login(emailRef.current.value,passwordRef.current.value)
+           await login(email,password)
            history.push('/')
         }catch{
             setError('failed to signin')
         }
         
-        setLoading(false)
+        
     
 
     }
