@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { AuthProvider, useAuth } from "../contexts/Authcontext";
+import { AuthProvider } from "../contexts/Authcontext";
 import Signup from "./Signup";
 import { BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import Dashboard from "./Dashboard";
